@@ -41,7 +41,7 @@ export function YoutubeCard({ videoId, title, description }: { videoId: string; 
                 <div className="sticky top-0 z-10 flex h-0">
                   <motion.button
                     variants={button}
-                    className="absolute right-5 top-5 cursor-pointer rounded-full border border-black/20 bg-white/50 p-2  backdrop-blur dark:border-white/20 dark:bg-black/50"
+                    className="absolute right-5 top-5 cursor-pointer rounded-full border border-black/10 bg-white/50 p-2 backdrop-blur transition-colors hover:border-black/20 dark:border-white/20 dark:bg-black/50 dark:hover:border-white/30"
                     onClick={() => setIsOpen(null)}>
                     <X size={32} strokeWidth={1} />
                   </motion.button>
