@@ -36,7 +36,7 @@ export function YoutubeCard({ videoId, title, description }: { videoId: string; 
             <motion.div initial="initial" animate="animate" exit="exit" className="fixed inset-0 z-50">
               <motion.div
                 variants={variants}
-                className="absolute inset-0 bg-white/50 text-black backdrop-blur dark:bg-black/50 dark:text-white"></motion.div>
+                className="absolute inset-0 bg-white/50 bg-noise text-black backdrop-blur dark:bg-black/50 dark:text-white"></motion.div>
               <RemoveScroll className="fixed inset-0 z-50 overflow-auto">
                 <div className="sticky top-0 z-10 flex h-0">
                   <motion.button

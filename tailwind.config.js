@@ -3,7 +3,11 @@ module.exports = {
   darkMode: 'class',
   content: ['./pages/**/*.{js,jsx,ts,tsx,md,mdx}', './components/**/*.{js,jsx,ts,tsx,md,mdx}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        noise: "url('/image/noise.svg')",
+      },
+    },
   },
   plugins: [require('@tailwindcss/container-queries')],
 }
