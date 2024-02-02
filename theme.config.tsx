@@ -35,7 +35,7 @@ const config: DocsThemeConfig = {
     text: '©2024 JUCHUNKO.COM All rights reserved.',
   },
   nextThemes: {
-    defaultTheme: 'dark',
+    defaultTheme: 'system',
   },
   gitTimestamp: <></>,
   search: {
