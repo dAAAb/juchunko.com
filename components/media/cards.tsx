@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { YouTubeEmbed } from '@next/third-parties/google'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import { X } from 'lucide-react'
 import { RemoveScroll } from 'react-remove-scroll'
 
 export function YoutubeCard({ videoId, title, description }: { videoId: string; title: string; description: string }) {
   const [isOpen, setIsOpen] = useState(null)
+  const zIndex = useMotionValue(0)
   const variants = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -21,7 +22,16 @@ export function YoutubeCard({ videoId, title, description }: { videoId: string; 
       <motion.div
         layoutId={videoId}
         onClick={() => setIsOpen(true)}
-        className="relative z-0 cursor-pointer bg-transparent @container">
+        className="relative z-0 cursor-pointer bg-transparent @container"
+        style={{ zIndex }}
+        onLayoutAnimationStart={() => {
+          zIndex.set(20)
+        }}
+        onLayoutAnimationComplete={() => {
+          if (!isOpen) {
+            zIndex.set(0)
+          }
+        }}>
         <motion.div
           className="group relative aspect-video overflow-hidden rounded-lg shadow-lg"
           layoutId={`video-${videoId}`}
