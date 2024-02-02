@@ -41,6 +41,9 @@ const config: DocsThemeConfig = {
   search: {
     placeholder: '搜尋⋯⋯',
   },
+  toc: {
+    title: '目錄',
+  },
 }
 
 export default config
