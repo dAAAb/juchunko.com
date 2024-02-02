@@ -5,5 +5,10 @@
   "keyword": "詞彙說明",
   "tools": "工具一覽",
   "contact": "聯繫寶博",
-  "media": "媒體報導"
+  "media": {
+    "title": "媒體報導",
+    "theme": {
+      "layout": "full"
+    }
+  }
 }
