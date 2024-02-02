@@ -38,6 +38,9 @@ const config: DocsThemeConfig = {
     defaultTheme: 'dark',
   },
   gitTimestamp: <></>,
+  search: {
+    placeholder: '搜尋⋯⋯',
+  },
 }
 
 export default config
