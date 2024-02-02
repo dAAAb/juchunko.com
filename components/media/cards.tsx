@@ -23,11 +23,10 @@ export function YoutubeCard({ videoId, title, description }: { videoId: string; 
         onClick={() => setIsOpen(true)}
         className="relative z-0 cursor-pointer bg-transparent @container">
         <motion.div
-          className="group relative aspect-video overflow-hidden rounded-lg shadow-lg transition-shadow hover:shadow-xl"
-          whileHover={{
-            y: -4,
-          }}
-          layoutId={`video-${videoId}`}>
+          className="group relative aspect-video overflow-hidden rounded-lg shadow-lg"
+          layoutId={`video-${videoId}`}
+          whileHover={{ scale: 1.025 }}
+          whileTap={{ scale: 0.975 }}>
           <motion.img
             src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
             className="block aspect-video w-full object-cover"
