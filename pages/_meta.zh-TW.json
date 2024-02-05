@@ -1,0 +1,12 @@
+{
+  "index": {
+    "title": "首頁",
+    "type": "page",
+    "display": "hidden"
+  },
+  "docs": {
+    "title": "寶博宇宙",
+    "type": "page",
+    "display": "hidden"
+  }
+}

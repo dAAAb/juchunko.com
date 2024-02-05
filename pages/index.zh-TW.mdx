@@ -1,0 +1,27 @@
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+
+{<div className="w-full xl:mt-20 mx-auto aspect-square sm:aspect-video relative">
+<spline-viewer
+className="absolute inset-0"
+loading-anim-type="spinner-big-light"
+url="https://prod.spline.design/PykwbOV-m1ak0rZ0/scene.splinecode" />
+
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-center text-xl sm:text-3xl lg:text-4xl uppercase font-semibold tracking-wider">
+      The Plurality is here.
+    </div>
+  </div>
+</div>}
+
+<div className="text-center">
+
+<p className="text-xl">先進國會・共識未來</p>
+
+{<Link href="/docs" className="button mt-3">
+
+進入寶博宇宙 <ArrowRight strokeWidth={1} size={16} />
+
+</Link>}
+
+</div>

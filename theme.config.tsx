@@ -44,6 +44,10 @@ const config: DocsThemeConfig = {
   toc: {
     title: '目錄',
   },
+  i18n: [
+    { locale: 'en-US', text: 'English' },
+    { locale: 'zh-TW', text: '中文' },
+  ],
 }
 
 export default config
