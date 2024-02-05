@@ -1,6 +1,23 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 
+const translations = {
+  'zh-TW': {
+    toc: '目錄',
+    search_placeholder: '搜尋⋯⋯',
+    edit_this_page: '在 GitHub 編輯這個頁面',
+  },
+  'en-US': {
+    toc: 'Table of Contents',
+    search_placeholder: 'Search...',
+    edit_this_page: 'Edit this page on GitHub',
+  },
+}
+function localeTranslation(key: string) {
+  const router = useRouter()
+  const locale = router.locale || 'en-US'
+  return translations[locale][key] || translations['en-US'][key]
+}
 const config: DocsThemeConfig = {
   logo: <span className="nx-font-semibold">JUCHUNKO</span>,
   project: {
@@ -34,15 +51,21 @@ const config: DocsThemeConfig = {
   footer: {
     text: '©2024 JUCHUNKO.COM All rights reserved.',
   },
+  feedback: {
+    content: null,
+  },
+  editLink: {
+    text: () => localeTranslation('edit_this_page'),
+  },
   nextThemes: {
     defaultTheme: 'system',
   },
   gitTimestamp: <></>,
   search: {
-    placeholder: '搜尋⋯⋯',
+    placeholder: () => localeTranslation('search_placeholder'),
   },
   toc: {
-    title: '目錄',
+    title: () => localeTranslation('toc'),
   },
   i18n: [
     { locale: 'en-US', text: 'English' },

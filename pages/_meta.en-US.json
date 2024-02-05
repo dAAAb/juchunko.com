@@ -1,11 +1,11 @@
 {
   "index": {
-    "title": "首頁",
+    "title": "Home",
     "type": "page",
     "display": "hidden"
   },
   "docs": {
-    "title": "寶博宇宙",
+    "title": "dAb Universe",
     "type": "page",
     "display": "hidden"
   }

@@ -1,13 +1,13 @@
 {
-  "welcome": "歡迎",
-  "manual": "寶博使用說明",
-  "act": "法案行動",
-  "works": "便民服務",
-  "keyword": "詞彙說明",
-  "tools": "工具一覽",
-  "contact": "聯繫寶博",
+  "welcome": "Welcome",
+  "manual": "dAb User Manual",
+  "act": "Legislative Action",
+  "works": "Public Services",
+  "keyword": "Glossary",
+  "tools": "Tools Overview",
+  "contact": "Contact dAb",
   "media": {
-    "title": "媒體報導",
+    "title": "Media Coverage",
     "theme": {
       "layout": "full"
     }
