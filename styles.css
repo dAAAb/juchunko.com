@@ -26,7 +26,7 @@ body {
     @apply !m-0;
   }
   blockquote p {
-    @apply text-lg text-white;
+    @apply text-lg dark:text-white;
   }
   blockquote p + p {
     @apply !mt-2;
