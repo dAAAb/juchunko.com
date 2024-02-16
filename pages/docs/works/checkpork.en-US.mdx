@@ -24,7 +24,69 @@ export default function CheckTraceNumber() {
         placeholder="Enter trace number"
       />
       <button onClick={checkNumber}>Check</button>
-      <p>Result: {result}</p>
+      <p>{result}</p>
+      <p>
+
+
+
+Disclaimer:
+
+This website (hereinafter referred to as "the Service") provides a food traceability number inquiry tool intended to assist consumers in conducting preliminary inquiries into food safety information. All information provided by the Service is based on currently available data and resources, and efforts are made to ensure the accuracy and timeliness of the information. However, the Service does not guarantee the complete accuracy or reliability of the provided information and is not responsible for any actions taken based on this information.
+
+Information Limitations: The food traceability information provided by the Service is for reference only and cannot fully guarantee the safety or quality of the food. Users should obtain more comprehensive and accurate food safety information through official channels or professional institutions.
+
+Non-Professional Advice: The information provided by the Service should not be considered as professional advice. Before making any significant decisions, users are advised to conduct thorough research and consult with professionals.
+
+Disclaimer: The Service is not responsible for any direct or indirect losses incurred through the use of the Service. Users assume all risks associated with using the information from the Service.
+
+External Links: The Service may contain links to external websites, which are provided for the purpose of offering additional information. The Service is not responsible for the content, privacy policies, or practices of these external websites.
+
+Information Update and Correction: The Service reserves the right to update or correct information at any time without prior notice. Users should regularly review this disclaimer for possible changes.
+
+By using the Service, you acknowledge and agree to accept all terms of this disclaimer. If you do not agree to any part of this disclaimer, please do not use the Service.
+</p>
+{/* 內聯樣式 */}
+      <style jsx>{`
+        .container {
+          text-align: center;
+          margin: 20px;
+        }
+
+        .title {
+          color: #333;
+          margin-bottom: 20px;
+        }
+
+        .inputGroup {
+          margin-bottom: 20px;
+        }
+
+        .input {
+          padding: 10px;
+          margin-right: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+
+        .button {
+          padding: 10px 20px;
+          background-color: gray;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .button:hover {
+          background-color: darkgray;
+        }
+
+        .result {
+          color: green;
+          font-weight: bold;
+        }
+      `}</style>
     </div>
+    
   )
 }
