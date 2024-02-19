@@ -1,5 +1,11 @@
 import '/styles.css'
 
+import { GoogleAnalytics } from '@next/third-parties/google'
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <GoogleAnalytics gaId="G-9ZBHKW4YJF" />
+      <Component {...pageProps} />
+    </>
+  )
 }
