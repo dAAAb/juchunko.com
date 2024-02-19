@@ -1,15 +1,17 @@
 {
   "welcome": "Welcome",
-  "manual": "dAb User Manual",
-  "act": "Legislative Action",
-  "works": "Public Services",
-  "keyword": "Glossary",
-  "tools": "Tools Overview",
-  "contact": "Contact dAb",
+  "manual": "JC User Manual",
+  "act": "Legislative Acts",
+  "works": "Civil Techs",
+  "keyword": "Kewords Dict",
+  "tools": "Digital Tools",
   "media": {
     "title": "Media Coverage",
     "theme": {
       "layout": "full"
     }
-  }
+  },
+  "social": "Social Channels",
+  "contact": "Contact JC",
+  "presskit": "Press Kit"
 }

@@ -1,15 +1,17 @@
 {
   "welcome": "歡迎",
-  "manual": "寶博使用說明",
+  "manual": "寶博士使用說明",
   "act": "法案行動",
-  "works": "便民服務",
+  "works": "便民工具",
   "keyword": "詞彙說明",
-  "tools": "工具一覽",
-  "contact": "聯繫寶博",
+  "tools": "軟體應用",
   "media": {
     "title": "媒體報導",
     "theme": {
       "layout": "full"
     }
-  }
+  },
+  "social": "社群頻道",
+  "contact": "聯繫寶博",
+  "presskit": "資料袋"
 }
