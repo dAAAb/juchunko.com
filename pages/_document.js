@@ -1,6 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { SkipNavLink } from "nextra-theme-docs";
 
+import { GoogleAnalytics } from '@next/third-parties/google'
 class MyDocument extends Document {
   render() {
     return (
@@ -12,6 +13,7 @@ class MyDocument extends Document {
             type="module"
             src="https://unpkg.com/@splinetool/viewer@1.0.18/build/spline-viewer.js"
           />
+          <GoogleAnalytics gaId="G-9ZBHKW4YJF" />
         </Head>
         <body>
           <SkipNavLink styled />
