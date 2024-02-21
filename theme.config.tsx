@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
-
+import Footer from './components/footer'
 const translations = {
   'zh-TW': {
     toc: '目錄',
@@ -49,7 +49,7 @@ const config: DocsThemeConfig = {
     </>
   ),
   footer: {
-    text: '©2024 JUCHUNKO.COM All rights reserved.',
+    component: Footer,
   },
   feedback: {
     content: null,

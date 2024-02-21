@@ -17,6 +17,7 @@
     "nextra-theme-docs": "^2.13.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
     "react-remove-scroll": "^2.5.7",
     "react-wrap-balancer": "^1.1.0",
     "tailwind-merge": "^2.2.1"
