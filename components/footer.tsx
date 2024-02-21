@@ -4,23 +4,13 @@ function SoicalLink({ href, children }) {
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="text-gray-500 hover:text-gray-600 active:text-gray-700 dark:text-gray-300 dark:hover:text-gray-200 dark:active:text-gray-100">
       {children}
     </a>
   )
 }
-// 【臉書】https://fb.com/dr.juchunko/
-
-// 【IG】 https://instagr.am/dr.juchunko/
-
-// 【抖音】 https://tiktok.com/@dr.juchunko
-
-// 【脆】 https://threads.net/@dr.juchunko
-
-// 【YT】 https://youtube.com/@dr.juchunko
-
-// 國際社群
-// 【X】 https://x.com/@dAAAb
 export default function Footer() {
   return (
     <div className="border-t border-gray-200 bg-gray-50 py-6 dark:border-neutral-800 dark:bg-neutral-900 print:bg-transparent">
