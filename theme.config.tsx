@@ -28,11 +28,11 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     if (asPath !== '/') {
       return {
-        titleTemplate: '%s – JUCHUNKO.COM',
+        titleTemplate: '%s – 科技立委葛如鈞',
       }
     } else {
       return {
-        title: '先進國會・共識未來 - JUCHUNKO.COM',
+        title: '先進國會・共識未來 - 科技立委葛如鈞',
       }
     }
   },
