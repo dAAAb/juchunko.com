@@ -8,5 +8,17 @@
     "title": "Dr. Ju-Chun KO Universe",
     "type": "page",
     "display": "hidden"
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "page",
+    "href": "https://blog.juchunko.com/",
+    "newWindow": true
+  },
+  "transpal": {
+    "title": "Transcript",
+    "type": "page",
+    "href": "https://transpal.juchunko.com/",
+    "newWindow": true
   }
 }

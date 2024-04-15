@@ -8,5 +8,17 @@
     "title": "「科技立委葛如鈞．寶博士」宇宙",
     "type": "page",
     "display": "hidden"
+  },
+  "blog": {
+    "title": "部落格",
+    "type": "page",
+    "href": "https://blog.juchunko.com/",
+    "newWindow": true
+  },
+  "transpal": {
+    "title": "逐字稿",
+    "type": "page",
+    "href": "https://transpal.juchunko.com/",
+    "newWindow": true
   }
 }
