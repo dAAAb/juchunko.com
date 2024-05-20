@@ -16,10 +16,10 @@
 
 此外，網站部分內容區塊參考女人迷創辦人張瑋軒推廣的「個人使用說明書」概念（大感謝！），讓大家可以輕鬆了解與寶博合作的撇步、眉角（也沒什麼，就美式熱咖啡、貓派）；開發上也要大大感謝總統候選人級網站設計師 — 美勞哥 Maylogger！幫忙選用方案，把整個基底打起來，從零開始幫忙打底做了寶博網站。最後，當然也要感謝團隊同仁同心協力，臺大政治系助理現在也學會 GitHub commit 了！也感謝北科大區塊鏈社前社長大方介紹神祕又可愛的工程師，目前內建在寶博立院辦公室，持續銳意開發中！
 
-總之，這次初開張還有很多地方會繼續修改，每個頁面右側都有「在 GitHub 編輯這個頁面」，歡迎大家開票、修改，未來希望可以作為立委公僕的官網樣版，讓其他委員也可以 Fork!! 
+總之，這次初開張還有很多地方會繼續修改，每個頁面右側都有「在 GitHub 編輯這個頁面」，歡迎大家開票、修改，未來希望可以作為立委公僕的官網樣版，讓其他委員也可以 Fork!!
 
 網站持續開發更新中，也歡迎眾阿宅 Star 星星之力支援喔！感恩！
 
-🌏 https://juchunko.com
-🛠️ https://github.com/dAAAb/juchunko.com 
-🐖 https://juchunko.com/docs/works/checkpork 
+- 🌏 https://juchunko.com
+- 🛠️ https://github.com/dAAAb/juchunko.com
+- 🐖 https://juchunko.com/docs/works/checkpork
