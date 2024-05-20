@@ -8,21 +8,27 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.13",
     "@next/third-parties": "^14.2.3",
     "@tailwindcss/container-queries": "^0.1.1",
+    "ai": "^3.1.12",
     "framer-motion": "^11.2.4",
     "lucide-react": "^0.378.0",
     "next": "^14.2.3",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
+    "openai": "^4.47.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
+    "react-markdown": "^9.0.1",
     "react-remove-scroll": "^2.5.10",
     "react-wrap-balancer": "^1.1.0",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "autoprefixer": "^10.4.19",
