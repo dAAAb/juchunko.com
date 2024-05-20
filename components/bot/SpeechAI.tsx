@@ -172,7 +172,13 @@ export default function SpeechAI() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}>
-                  {[`以條列式整理頁面重點`]
+                  {[
+                    `整理這頁的重點`,
+                    `提供相關的背景資訊`,
+                    `這頁的主要觀點是什麼？`,
+                    '可以給我這個主題的詳細解釋嗎？',
+                    '幫我生成一個這段內容的問答',
+                  ]
                     .filter((x) => !messages.some((m) => m.content === x))
                     .map((message, index) => (
                       <button
