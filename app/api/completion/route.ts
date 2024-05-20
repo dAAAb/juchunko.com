@@ -1,7 +1,9 @@
 import { createOpenAI } from '@ai-sdk/openai'
 import { StreamingTextResponse, streamText } from 'ai'
+import { env } from 'process'
 export const dynamic = 'force-dynamic'
 const openai = createOpenAI({
+  apiKey: env.OPENAI_API_KEY,
   baseURL: 'https://gateway.ai.cloudflare.com/v1/3f1f83a939b2fc99ca45fd8987962514/open-ai/openai',
 })
 export async function POST(req: Request) {
