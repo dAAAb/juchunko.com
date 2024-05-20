@@ -5,7 +5,7 @@ import { X } from 'lucide-react'
 import { RemoveScroll } from 'react-remove-scroll'
 
 export function YoutubeCard({ videoId, title, description }: { videoId: string; title: string; description: string }) {
-  const [isOpen, setIsOpen] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
   const zIndex = useMotionValue(0)
   const variants = {
     initial: { opacity: 0 },
@@ -63,12 +63,12 @@ export function YoutubeCard({ videoId, title, description }: { videoId: string; 
                   <motion.button
                     variants={button}
                     className="absolute right-5 top-5 cursor-pointer rounded-full border border-black/10 bg-white/50 p-2 backdrop-blur transition-colors hover:border-black/20 dark:border-white/20 dark:bg-black/50 dark:hover:border-white/30"
-                    onClick={() => setIsOpen(null)}>
+                    onClick={() => setIsOpen(false)}>
                     <X size={32} strokeWidth={1} />
                   </motion.button>
                 </div>
                 <div
-                  onClick={() => setIsOpen(null)}
+                  onClick={() => setIsOpen(false)}
                   className="relative z-0 flex min-h-full w-full items-center justify-center p-5">
                   <motion.div
                     onClick={(e) => e.stopPropagation()}
