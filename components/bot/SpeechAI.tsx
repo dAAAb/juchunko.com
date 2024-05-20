@@ -22,31 +22,37 @@ function Message({ from, content }: { from: 'me' | 'ai'; content: string }) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: from === 'me' ? 50 : -50, height: 0 }}>
       <div className={twMerge('mb-2 flex w-full items-start gap-2', from === 'me' ? 'flex-row-reverse' : '')}>
-        <div
-          className={twMerge(
-            'rounded-full p-2',
-            from === 'me'
-              ? 'bg-gray-100 text-gray-500 shadow-inner'
-              : 'bg-slate-100 text-slate-500 shadow-inner dark:bg-white/10 dark:text-white/90',
-          )}>
-          {from === 'me' ? <User /> : <Bot />}
-        </div>
+        {from === 'me' && (
+          <div
+            className={twMerge(
+              'rounded-full p-2',
+              from === 'me'
+                ? 'bg-gray-100 text-gray-500 shadow-inner' // from user
+                : 'bg-blue-50 text-blue-500 dark:bg-white/10 dark:text-white/90', // from bot
+            )}>
+            {from === 'me' ? <User /> : <Bot />}
+          </div>
+        )}
         <div
           className={twMerge(
             'rounded-lg',
             from === 'me'
-              ? 'bg-gray-200 text-gray-800'
-              : 'bg-slate-200 text-slate-800 dark:bg-white/10 dark:text-white/90',
+              ? 'bg-gray-200 text-gray-800' // from user
+              : 'bg-blue-50 text-slate-800 dark:bg-white/10 dark:text-white/90', // from bot
           )}>
           {from === 'ai' && (
-            <div className="flex items-center justify-between rounded-t-lg bg-black/5 px-4 py-2 text-sm font-bold dark:bg-black/10">
-              AI 小助手
+            <div className="flex items-center justify-between rounded-t-lg bg-blue-100 px-4 py-2 text-sm font-bold dark:bg-black/10">
+              <div className="flex items-center gap-2">
+                <Bot size={16} />
+                AI 小助手
+              </div>
               <button onClick={() => copyToClipboard(content)} className="hover:opacity-75 active:opacity-100">
                 {copied ? <Check size={16} /> : <Copy size={16} />}
               </button>
             </div>
           )}
-          <Markdown className={twMerge('prose prose-sm px-4 py-2 text-sm', from === 'me' ? '' : 'dark:prose-invert')}>
+          <Markdown
+            className={twMerge('prose prose-sm break-all px-4 py-2 text-sm', from === 'me' ? '' : 'dark:prose-invert')}>
             {content}
           </Markdown>
         </div>
@@ -131,7 +137,7 @@ export default function SpeechAI() {
           <motion.div
             className="flex items-center justify-between rounded-t-lg bg-blue-500 p-2 text-white"
             layoutId="speech-ai-header">
-            <div className="flex items-center gap-2 px-2">
+            <div className="flex items-center gap-2 px-2 font-semibold">
               <motion.div layoutId="speech-ai-header-icon">
                 <BotMessageSquare size={24} />
               </motion.div>
