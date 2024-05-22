@@ -1,12 +1,44 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
-import { BotMessageSquare, Minus, Bot, User, RotateCcw, ArrowRight, Send, Copy, Check } from 'lucide-react'
+import { BotMessageSquare, Minus, Bot, RotateCcw, ArrowRight, Send, Copy, Check } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { useCompletion } from 'ai/react'
 import { useLocalStorage } from 'usehooks-ts'
 import Markdown from 'react-markdown'
 import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/router'
+
+const translations = {
+  'zh-TW': {
+    botName: 'AI 小助手',
+    botFirstMessage: '嗨，我是這個網站的 AI 小助手！有什麼可以幫助你的？',
+    actions: [
+      `整理這頁的重點`,
+      `提供相關的背景資訊`,
+      `這頁的主要觀點是什麼`,
+      '可以給我這個主題的詳細解釋嗎',
+      '幫我生成一個這段內容的問答',
+    ],
+  },
+  'en-US': {
+    botName: 'AI Assistant',
+    botFirstMessage: 'Hi, I am the AI assistant of this website! How can I help you?',
+    actions: [
+      'Summarize the key points of this page',
+      'Provide relevant background information',
+      'What is the main perspective of this page?',
+      'Can you give me a detailed explanation of this topic?',
+      'Generate a Q&A for this content',
+    ],
+  },
+}
+function localeTranslation(key: string) {
+  const router = useRouter()
+  const locale = router.locale || 'en-US'
+  return translations[locale][key] || translations['en-US'][key]
+}
+
 function Message({ from, content, showCopy = true }: { from: 'me' | 'ai'; content: string; showCopy?: boolean }) {
   const [copied, setCopied] = useState(false)
   async function copyToClipboard(text: string) {
@@ -33,14 +65,14 @@ function Message({ from, content, showCopy = true }: { from: 'me' | 'ai'; conten
             <div className="flex items-center justify-between rounded-t-lg bg-gray-100 px-3 py-2 text-sm font-bold dark:bg-neutral-800/70">
               <div className="flex items-center gap-2">
                 <Bot size={16} />
-                AI 小助手
+                <span>{localeTranslation('botName')}</span>
               </div>
               <button onClick={() => copyToClipboard(content)} className="hover:opacity-75 active:opacity-100">
                 {copied ? <Check size={16} /> : <Copy size={16} />}
               </button>
             </div>
           )}
-          <Markdown className="prose prose-sm prose-neutral break-all px-3 py-2 text-sm dark:prose-invert">
+          <Markdown className="prose prose-sm prose-neutral break-words px-3 py-2 text-sm dark:prose-invert">
             {content}
           </Markdown>
         </div>
@@ -127,7 +159,7 @@ export default function SpeechAI() {
               <motion.span className="p-2">
                 <BotMessageSquare size={20} />
               </motion.span>
-              AI 小助手
+              <span>{localeTranslation('botName')}</span>
             </div>
             <div className="flex">
               <button
@@ -145,7 +177,7 @@ export default function SpeechAI() {
           <motion.div
             className="h-[400px] overflow-y-scroll bg-white p-2 dark:bg-neutral-800"
             ref={messageContainerRef}>
-            <Message from="ai" content="嗨，我是這個網站的 AI 小助手！有什麼可以幫助你的？" showCopy={false} />
+            <Message from="ai" content={localeTranslation('botFirstMessage')} showCopy={false} />
             <AnimatePresence>
               {messages.map((m, index) => (
                 <Message from={m.role === 'user' ? 'me' : 'ai'} content={m.content} key={index} />
@@ -158,13 +190,7 @@ export default function SpeechAI() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}>
-                  {[
-                    `整理這頁的重點`,
-                    `提供相關的背景資訊`,
-                    `這頁的主要觀點是什麼`,
-                    '可以給我這個主題的詳細解釋嗎',
-                    '幫我生成一個這段內容的問答',
-                  ]
+                  {localeTranslation('actions')
                     .filter((x) => !messages.some((m) => m.content === x))
                     .map((message, index) => (
                       <button
