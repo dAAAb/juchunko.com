@@ -25,11 +25,11 @@ const translations = {
     botName: 'AI Assistant',
     botFirstMessage: 'Hi, I am the AI assistant of this website! How can I help you?',
     actions: [
-      'Summarize the key points of this page',
-      'Provide relevant background information',
-      'What is the main perspective of this page?',
-      'Can you give me a detailed explanation of this topic?',
-      'Generate a Q&A for this content',
+      'Summarize key points in English',
+      'Provide background info in English',
+      'Main perspective in English?',
+      'Detailed explanation in English?',
+      'Generate Q&A in English',
     ],
   },
 }
