@@ -52,7 +52,15 @@ function Message({ from, content, showCopy = true }: { from: 'me' | 'ai'; conten
     <motion.div
       initial={{ opacity: 0, x: from === 'me' ? 50 : -50 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: from === 'me' ? 50 : -50 }}>
+      exit={{
+        opacity: 0,
+        x: from === 'me' ? 50 : -50,
+        height: 0,
+        scale: 0,
+        transition: {
+          originX: from === 'me' ? 1 : 0,
+        },
+      }}>
       <div className={twMerge('mb-2 flex w-full items-start gap-2', from === 'me' ? 'flex-row-reverse' : '')}>
         <div
           className={twMerge(
