@@ -218,7 +218,7 @@ export default function SpeechAI() {
             />
             <button
               type="submit"
-              className="mr-1 rounded-full p-2 text-neutral-700 hover:bg-blue-100 dark:text-neutral-500 dark:hover:bg-neutral-600"
+              className="mr-1 rounded-full p-2 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-500 dark:hover:bg-neutral-600"
               ref={submitButtonRef}>
               <Send size={20} />
             </button>
