@@ -4,7 +4,7 @@ import { env } from 'process'
 export const dynamic = 'force-dynamic'
 const openai = createOpenAI({
   apiKey: env.OPENAI_API_KEY,
-  baseURL: 'https://gateway.ai.cloudflare.com/v1/3f1f83a939b2fc99ca45fd8987962514/open-ai/openai',
+  baseURL: 'https://gateway.ai.cloudflare.com/v1/3f1f83a939b2fc99ca45fd8987962514/juchunko-com/openai',
 })
 export async function POST(req: Request) {
   const systemPrompt = `你是國民黨立委葛如鈞（寶博士）網站的 AI 助手
@@ -34,6 +34,7 @@ export async function POST(req: Request) {
         content: prompt,
       },
     ],
+    maxTokens: 4000,
   })
   // Convert the response into a friendly text-stream
   return new StreamingTextResponse(response.toAIStream())
