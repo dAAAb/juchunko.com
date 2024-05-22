@@ -125,10 +125,10 @@ export default function SpeechAI() {
     if (messageContainerRef.current) {
       messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight
     }
-  }, [messages, active])
+  }, [messages, active, isLoading])
   useEffect(() => {
-    const isDoc = !filename?.startsWith('/docs')
-    setHide(isDoc)
+    const isNotDocs = !filename?.startsWith('/docs')
+    setHide(isNotDocs)
     setActive(false)
   }, [filename])
   useEffect(() => {
