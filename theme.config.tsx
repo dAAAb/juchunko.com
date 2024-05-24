@@ -22,6 +22,10 @@ function localeTranslation(key: string) {
 }
 const config: DocsThemeConfig = {
   logo: () => <span className="nx-font-semibold">{localeTranslation('logo')}</span>,
+  banner: {
+    key: 'congress-reform-facts',
+    text: <a href="/docs/act/congress-reform-facts">國會改革事實專區 →</a>,
+  },
   project: {
     link: 'https://github.com/dAAAb/juchunko.com',
   },
