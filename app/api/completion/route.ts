@@ -50,7 +50,7 @@ export async function POST(req: Request) {
         await new Promise((r) =>
           setTimeout(
             r,
-            // get a random number between 5ms and 30ms to simulate a random delay
+            // get a random number between 5ms and 25ms to simulate a random delay
             Math.floor(Math.random() * 20) + 5,
           ),
         )
