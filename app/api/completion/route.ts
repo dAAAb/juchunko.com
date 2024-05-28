@@ -1,11 +1,12 @@
-import { createOpenAI } from '@ai-sdk/openai'
-import { StreamingTextResponse, streamText } from 'ai'
-import { env } from 'process'
+import OpenAI from 'openai'
+import { StreamingTextResponse, OpenAIStream } from 'ai'
 export const dynamic = 'force-dynamic'
-const openai = createOpenAI({
-  apiKey: env.OPENAI_API_KEY,
+// Create an OpenAI API client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
   baseURL: 'https://gateway.ai.cloudflare.com/v1/3f1f83a939b2fc99ca45fd8987962514/juchunko-com/openai',
 })
+
 export async function POST(req: Request) {
   const systemPrompt = `你是國民黨立委葛如鈞（寶博士）網站的 AI 助手
   1. 請根據頁面內容回答使用者的問題，若無法回答請告知使用者。
@@ -20,8 +21,12 @@ export async function POST(req: Request) {
   const fileData = await fetch(`https://raw.githubusercontent.com/dAAAb/juchunko.com/main/pages${filename}.zh-TW.mdx`, {
     cache: 'force-cache',
   }).then((res) => res.text())
-  const response = await streamText({
-    model: openai('gpt-4o'),
+  // Ask OpenAI for a streaming completion given the prompt
+  const response = await openai.chat.completions.create({
+    model: 'gpt-4o',
+    stream: true,
+    temperature: 0.6,
+    max_tokens: 4096,
     messages: [
       { role: 'system', content: systemPrompt },
       {
@@ -34,8 +39,26 @@ export async function POST(req: Request) {
         content: prompt,
       },
     ],
-    maxTokens: 4000,
   })
   // Convert the response into a friendly text-stream
-  return new StreamingTextResponse(response.toAIStream())
+  const stream = OpenAIStream(response)
+  const reStream = new ReadableStream({
+    async start(controller) {
+      for await (const chunk of stream as any) {
+        controller.enqueue(chunk)
+        // on end
+        await new Promise((r) =>
+          setTimeout(
+            r,
+            // get a random number between 5ms and 30ms to simulate a random delay
+            Math.floor(Math.random() * 20) + 5,
+          ),
+        )
+      }
+      controller.close()
+    },
+  })
+
+  // Convert the response into a friendly text-stream
+  return new StreamingTextResponse(reStream)
 }
