@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
-import { BotMessageSquare, Minus, Bot, RotateCcw, ArrowRight, Send, Copy, Check } from 'lucide-react'
+import { BotMessageSquare, Minus, Bot, RotateCcw, ArrowRight, Send, Copy, Check, X } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { useCompletion } from 'ai/react'
 import { useLocalStorage } from 'usehooks-ts'
@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const translations = {
   'zh-TW': {
     botName: 'AI 小助手',
-    botFirstMessage: '嗨，我是這個網站的 AI 小助手！有什麼可以幫助你的？',
+    botFirstMessage: '嗨，有什麼可以幫助你的？',
     actions: [
       `整理這頁的重點`,
       `提供相關的背景資訊`,
@@ -23,7 +23,7 @@ const translations = {
   },
   'en-US': {
     botName: 'AI Assistant',
-    botFirstMessage: 'Hi, I am the AI assistant of this website! How can I help you?',
+    botFirstMessage: 'Hi, how can I help you?',
     actions: [
       'Summarize key points in English',
       'Provide background info in English',
@@ -92,6 +92,7 @@ function Message({ from, content, showCopy = true }: { from: 'me' | 'ai'; conten
 export default function SpeechAI() {
   const filename = usePathname()
   const [hide, setHide] = useState(false)
+  const [messageHide, setMessageHide] = useState(false)
   const y = useMotionValue(16)
   const messageContainerRef = useRef<HTMLDivElement>(null)
   const submitButtonRef = useRef<HTMLButtonElement>(null)
@@ -155,7 +156,7 @@ export default function SpeechAI() {
   }, [])
   if (hide) return null
   return (
-    <>
+    <AnimatePresence>
       {active ? (
         <motion.div
           className="fixed right-4 w-[min(400px,calc(100vw-32px))] rounded-lg bg-neutral-50 shadow-lg dark:bg-neutral-700"
@@ -233,19 +234,56 @@ export default function SpeechAI() {
           </form>
         </motion.div>
       ) : (
-        <motion.div className="fixed right-4" key={0} layoutId="speech-ai" style={{ bottom: y }}>
-          <motion.button
-            className="rounded-full bg-neutral-100 p-3 text-neutral-500 hover:shadow-md dark:bg-neutral-600 dark:text-neutral-50"
-            onClick={() => setActive(true)}
-            layoutId="speech-ai-header"
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.05, y: -2 }}>
-            <motion.div layoutId="speech-ai-header-icon">
-              <BotMessageSquare size={20} />
-            </motion.div>
-          </motion.button>
+        <motion.div className="fixed right-4 flex flex-col items-end gap-2" key={0} style={{ bottom: y }}>
+          <AnimatePresence>
+            {!messageHide && (
+              <motion.div
+                className="flex origin-bottom-right flex-col items-center rounded-lg bg-neutral-100 text-sm text-neutral-500 dark:bg-neutral-600 dark:text-neutral-50"
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                  scale: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  x: -20,
+                  scale: 0,
+                }}>
+                <div className="flex w-full items-center justify-end rounded-t-lg bg-neutral-200 p-2 dark:bg-neutral-700">
+                  <motion.button onClick={() => setMessageHide(true)}>
+                    <X size={16} />
+                  </motion.button>
+                </div>
+                <div className="flex flex-col p-2">
+                  {localeTranslation('botFirstMessage')}
+                  <motion.button
+                    onClick={() => setActive(true)}
+                    className="mt-2 rounded-lg bg-neutral-200 px-3 py-2 font-semibold hover:bg-neutral-300 active:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:active:bg-neutral-900">
+                    與 AI 對話
+                  </motion.button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <motion.div layoutId="speech-ai">
+            <motion.button
+              className="rounded-full bg-neutral-100 p-3 text-neutral-500 hover:shadow-md dark:bg-neutral-600 dark:text-neutral-50"
+              onClick={() => setActive(true)}
+              layoutId="speech-ai-header"
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05, y: -2 }}>
+              <motion.div layoutId="speech-ai-header-icon">
+                <BotMessageSquare size={20} />
+              </motion.div>
+            </motion.button>
+          </motion.div>
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   )
 }
