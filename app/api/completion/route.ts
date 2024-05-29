@@ -17,10 +17,13 @@ export async function POST(req: Request) {
   6. 目前你只能看到目前頁面的內容，若目前沒有你需要的資訊，請告知使用者請切換到相對應的頁面。`
 
   const { messages, filename, prompt } = await req.json()
-
-  const fileData = await fetch(`https://raw.githubusercontent.com/dAAAb/juchunko.com/main/pages${filename}.zh-TW.mdx`, {
-    cache: 'force-cache',
-  }).then((res) => res.text())
+  const date = new Date().toLocaleDateString()
+  const fileData = await fetch(
+    `https://raw.githubusercontent.com/dAAAb/juchunko.com/main/pages${filename}.zh-TW.mdx?d=${encodeURIComponent(date)}`,
+    {
+      cache: 'force-cache',
+    },
+  ).then((res) => res.text())
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.chat.completions.create({
     model: 'gpt-4o',
