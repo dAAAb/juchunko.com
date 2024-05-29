@@ -243,7 +243,7 @@ export default function SpeechAI() {
                 className="flex origin-bottom-right flex-col items-center rounded-lg bg-neutral-100 text-sm text-neutral-500 dark:bg-neutral-600 dark:text-neutral-50"
                 initial={{
                   opacity: 0,
-                  x: -40,
+                  x: -30,
                   scale: 0,
                 }}
                 animate={{
@@ -253,7 +253,7 @@ export default function SpeechAI() {
                 }}
                 exit={{
                   opacity: 0,
-                  x: -40,
+                  x: -30,
                   scale: 0,
                 }}
                 transition={{
