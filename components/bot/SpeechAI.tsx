@@ -13,6 +13,7 @@ const translations = {
   'zh-TW': {
     botName: 'AI 小助手',
     botFirstMessage: '嗨，有什麼可以幫助你的？',
+    talkToAI: '與 AI 對話',
     actions: [
       `整理這頁的重點`,
       `提供相關的背景資訊`,
@@ -24,6 +25,7 @@ const translations = {
   'en-US': {
     botName: 'AI Assistant',
     botFirstMessage: 'Hi, how can I help you?',
+    talkToAI: 'Talk to AI',
     actions: [
       'Summarize key points in English',
       'Provide background info in English',
@@ -241,7 +243,7 @@ export default function SpeechAI() {
                 className="flex origin-bottom-right flex-col items-center rounded-lg bg-neutral-100 text-sm text-neutral-500 dark:bg-neutral-600 dark:text-neutral-50"
                 initial={{
                   opacity: 0,
-                  x: -20,
+                  x: -40,
                   scale: 0,
                 }}
                 animate={{
@@ -251,8 +253,11 @@ export default function SpeechAI() {
                 }}
                 exit={{
                   opacity: 0,
-                  x: -20,
+                  x: -40,
                   scale: 0,
+                }}
+                transition={{
+                  delay: 0.4,
                 }}>
                 <div className="flex w-full items-center justify-end rounded-t-lg bg-neutral-200 p-2 dark:bg-neutral-700">
                   <motion.button onClick={() => setMessageHide(true)}>
@@ -263,8 +268,8 @@ export default function SpeechAI() {
                   {localeTranslation('botFirstMessage')}
                   <motion.button
                     onClick={() => setActive(true)}
-                    className="mt-2 rounded-lg bg-neutral-200 px-3 py-2 font-semibold hover:bg-neutral-300 active:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:active:bg-neutral-900">
-                    與 AI 對話
+                    className="mt-2 rounded bg-neutral-200 px-3 py-2 font-semibold hover:bg-neutral-300 active:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:active:bg-neutral-900">
+                    {localeTranslation('talkToAI')}
                   </motion.button>
                 </div>
               </motion.div>
