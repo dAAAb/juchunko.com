@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const translations = {
   'zh-TW': {
     botName: 'AI 小助手',
-    botFirstMessage: '嗨，有什麼可以幫助你的？',
+    botFirstMessage: '👋 嗨，有什麼可以幫助你的？',
     talkToAI: '與 AI 對話',
     actions: [
       `整理這頁的重點`,
@@ -24,7 +24,7 @@ const translations = {
   },
   'en-US': {
     botName: 'AI Assistant',
-    botFirstMessage: 'Hi, how can I help you?',
+    botFirstMessage: '👋 Hi, how can I help you?',
     talkToAI: 'Talk to AI',
     actions: [
       'Summarize key points in English',
