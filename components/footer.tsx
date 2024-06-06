@@ -1,5 +1,5 @@
 import { BsThreads, BsFacebook, BsInstagram, BsTiktok, BsYoutube, BsTwitterX } from 'react-icons/bs'
-import SpeechAI from './bot/SpeechAI'
+import Assistant from './bot/Assistant'
 function SoicalLink({ href, children }) {
   return (
     <a
@@ -14,7 +14,7 @@ function SoicalLink({ href, children }) {
 export default function Footer() {
   return (
     <>
-      <SpeechAI />
+      <Assistant />
       <div
         className="border-t border-gray-200 bg-gray-50 py-6 dark:border-neutral-800 dark:bg-neutral-900 print:bg-transparent"
         id="footer">
