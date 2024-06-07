@@ -1,6 +1,7 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Footer from './components/footer'
+import ElevenLabsAudioNative from './components/bot/ElevenLabsAudioNative'
 const translations = {
   'zh-TW': {
     logo: '科技立委葛如鈞．寶博士',
@@ -54,6 +55,14 @@ const config: DocsThemeConfig = {
       <meta property="og:image" content="https://juchunko.com/ogimage.png" />
     </>
   ),
+  main({ children }) {
+    return (
+      <>
+        <ElevenLabsAudioNative publicUserId="e826f7db9aa74a5b23ec481d0d24467f232dbc1622ceb065c98ff3c4adb99830" />
+        {children}
+      </>
+    )
+  },
   footer: {
     component: Footer,
   },
