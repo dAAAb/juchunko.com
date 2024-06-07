@@ -2,6 +2,7 @@
 
 'use client'
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export type ElevenLabsProps = {
   publicUserId: string
@@ -18,6 +19,8 @@ export const ElevenLabsAudioNative = ({
   backgroundColorRgba,
   children,
 }: ElevenLabsProps) => {
+  const pathname = usePathname()
+  const isDocs = pathname?.startsWith('/docs')
   useEffect(() => {
     const script = document.createElement('script')
 
@@ -30,7 +33,7 @@ export const ElevenLabsAudioNative = ({
     }
   }, [])
 
-  return (
+  return isDocs ? (
     <div
       id="elevenlabs-audionative-widget"
       data-height={size === 'small' ? '90' : '120'}
@@ -41,9 +44,12 @@ export const ElevenLabsAudioNative = ({
       data-playerurl="https://elevenlabs.io/player/index.html"
       data-small={size === 'small' ? 'True' : 'False'}
       data-textcolor={textColorRgba ?? 'rgba(0, 0, 0, 1.0)'}
-      data-backgroundcolor={backgroundColorRgba ?? 'rgba(255, 255, 255, 1.0)'}>
+      data-backgroundcolor={backgroundColorRgba ?? 'rgba(255, 255, 255, 1.0)'}
+      key={pathname}>
       {children}
     </div>
+  ) : (
+    <> </>
   )
 }
 
