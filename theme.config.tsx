@@ -1,6 +1,7 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Footer from './components/footer'
+import { usePathname } from 'next/navigation'
 import ElevenLabsAudioNative from './components/bot/ElevenLabsAudioNative'
 const translations = {
   'zh-TW': {
@@ -56,11 +57,12 @@ const config: DocsThemeConfig = {
     </>
   ),
   main({ children }) {
+    const pathname = usePathname()
     return (
-      <>
+      <div key={pathname}>
         <ElevenLabsAudioNative publicUserId="e826f7db9aa74a5b23ec481d0d24467f232dbc1622ceb065c98ff3c4adb99830" />
         {children}
-      </>
+      </div>
     )
   },
   footer: {
