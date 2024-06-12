@@ -23,7 +23,7 @@ export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProp
     return () => {
       document.body.removeChild(script)
     }
-  }, [pathname])
+  }, [pathname, colorScheme])
   useEffect(() => {
     // get colorScheme from html style
     const colorScheme = document.documentElement.style.getPropertyValue('color-scheme')
