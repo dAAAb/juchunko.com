@@ -20,14 +20,28 @@ export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProp
     script.async = true
     document.body.appendChild(script)
 
-    // get colorScheme from html style
-    const colorScheme = document.documentElement.style.getPropertyValue('color-scheme')
-    setColorScheme(colorScheme)
-
     return () => {
       document.body.removeChild(script)
     }
   }, [pathname])
+  useEffect(() => {
+    // get colorScheme from html style
+    const colorScheme = document.documentElement.style.getPropertyValue('color-scheme')
+    setColorScheme(colorScheme)
+    // keep track of colorScheme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'style') {
+          const colorScheme = document.documentElement.style.getPropertyValue('color-scheme')
+          setColorScheme(colorScheme)
+        }
+      })
+    })
+    observer.observe(document.documentElement, { attributes: true })
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   return isDocs ? (
     <div className="w-full overflow-hidden rounded-lg">
