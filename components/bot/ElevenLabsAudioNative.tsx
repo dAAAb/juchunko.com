@@ -6,17 +6,10 @@ import { usePathname } from 'next/navigation'
 
 export type ElevenLabsProps = {
   publicUserId: string
-  textColorRgba?: string
-  backgroundColorRgba?: string
   children?: React.ReactNode
 }
 
-export const ElevenLabsAudioNative = ({
-  publicUserId,
-  textColorRgba,
-  backgroundColorRgba,
-  children,
-}: ElevenLabsProps) => {
+export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProps) => {
   const [colorScheme, setColorScheme] = useState<string | null>(null)
   const pathname = usePathname()
   const isDocs = pathname?.startsWith('/docs')
