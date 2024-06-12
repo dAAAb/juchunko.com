@@ -46,7 +46,7 @@ export const ElevenLabsAudioNative = ({
       data-playerurl="https://elevenlabs.io/player/index.html"
       data-small="True"
       data-textcolor={colorScheme === 'light' ? 'rgba(0, 0, 0, 1.0)' : 'rgba(255, 255, 255, 1.0)'}
-      data-backgroundcolor={colorScheme === 'light' ? 'rgba(255, 255, 255, 1.0)' : 'rgba(0, 0, 0, 0)'}
+      data-backgroundcolor={colorScheme === 'light' ? 'rgba(255, 255, 255, 1.0)' : 'rgba(17, 17, 17, 1)'}
       key={pathname}>
       {children}
     </div>
