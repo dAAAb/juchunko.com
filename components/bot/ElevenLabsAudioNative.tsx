@@ -44,7 +44,7 @@ export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProp
   }, [])
 
   return isDocs ? (
-    <div className="w-full overflow-hidden rounded-lg">
+    <div className="w-full overflow-hidden rounded-lg" key={colorScheme}>
       <div
         id="elevenlabs-audionative-widget"
         data-height="90"
