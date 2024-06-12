@@ -10,7 +10,7 @@ export type ElevenLabsProps = {
 }
 
 export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProps) => {
-  const [colorScheme, setColorScheme] = useState<string | null>(null)
+  const [colorScheme, setColorScheme] = useState<string>('light')
   const pathname = usePathname()
   const isDocs = pathname?.startsWith('/docs')
   useEffect(() => {
@@ -23,13 +23,14 @@ export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProp
     // get colorScheme from html style
     const colorScheme = document.documentElement.style.getPropertyValue('color-scheme')
     setColorScheme(colorScheme)
+
     return () => {
       document.body.removeChild(script)
     }
   }, [pathname])
 
   return isDocs ? (
-    <div className="h-[90px] w-full overflow-hidden rounded-lg">
+    <div className="w-full overflow-hidden rounded-lg">
       <div
         id="elevenlabs-audionative-widget"
         data-height="90"
@@ -43,7 +44,7 @@ export const ElevenLabsAudioNative = ({ publicUserId, children }: ElevenLabsProp
         data-backgroundcolor={colorScheme === 'light' ? 'rgba(255, 255, 255, 1.0)' : 'rgba(17, 17, 17, 1)'}
         key={pathname}>
         {children}
-      </div>{' '}
+      </div>
     </div>
   ) : (
     <> </>
